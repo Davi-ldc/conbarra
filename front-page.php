@@ -65,10 +65,26 @@
           <h2 class="heading-2">Nosso Fundador</h2>
         </div>
         <div class="w-layout-grid content_bottom">
-          <a href="<?php echo get_template_directory_uri(); ?>/assets/images/curriculo.pdf" 
-          class="link_wrap _1em w-inline-block" target="_blank">
-            <div class="linktext">Currículo<br></div>
-            <div class="linkline"></div>
+          <?php
+            global $wpdb;
+
+            // Nome do arquivo
+            $file_name = 'curriculo.pdf';
+
+            // Procurar o ID na biblioteca de mídia
+            $attachment_id = $wpdb->get_var($wpdb->prepare("
+                SELECT ID FROM {$wpdb->posts} 
+                WHERE post_type = 'attachment' 
+                AND post_title = %s 
+                LIMIT 1", pathinfo($file_name, PATHINFO_FILENAME)
+            ));
+
+            $file_url = $attachment_id ? wp_get_attachment_url($attachment_id) : '#';
+          ?>
+
+          <a href="<?php echo esc_url($file_url); ?>" class="link_wrap _1em w-inline-block" target="_blank">
+              <div class="linktext">Currículo<br></div>
+              <div class="linkline"></div>
           </a>
           <p class="p fade">Alexandre Barra iniciou sua carreira como consultor em 1996, atuou como especialista em
             regulação na ANTT, em seguida foi analista sênior de infraestrutura na CNI, diretor-adjunto na Andrade
