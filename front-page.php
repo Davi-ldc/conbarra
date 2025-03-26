@@ -65,7 +65,8 @@
           <h2 class="heading-2">Nosso Fundador</h2>
         </div>
         <div class="w-layout-grid content_bottom">
-          <a href="#" class="link_wrap _1em w-inline-block">
+          <a href="<?php echo get_template_directory_uri(); ?>/assets/images/curriculo.pdf" 
+          class="link_wrap _1em w-inline-block" target="_blank">
             <div class="linktext">Currículo<br></div>
             <div class="linkline"></div>
           </a>
