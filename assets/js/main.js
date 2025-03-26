@@ -239,7 +239,9 @@ class IntroAnimation {
     this.heroLogoLetters = DOM.heroLogoLetters;
     this.heroLogoVector = DOM.heroLogoVector;
     this.introP = DOM.introP;
-    this.lines = new SplitType(this.introP, { types: "lines" }).lines;
+    document.fonts.ready.then(() => {
+      this.lines = new SplitType(this.introP, { types: "lines" }).lines;
+    });    
     this.heroImg = DOM.heroImg;
     this.language = DOM.menuTextWrap;
     this.menu = DOM.menuIconWrap;
