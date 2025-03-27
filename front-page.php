@@ -228,7 +228,7 @@
           <?php
             if ( function_exists( 'pods' ) ) {
                 $params = array(
-                    'orderby' => 'post_date DESC', 
+                    'orderby' => 'RAND()', 
                     'limit' => -1 // Sem limite de itens
                 );
                 $pods = pods( 'depoimentos', $params );

@@ -63,11 +63,11 @@
     </section>
 <?php wp_footer(); ?>
 <?php 
-if (is_front_page()) : ?>
+if (is_front_page()) : ?> 
   <script>
     const newsSwiper = new Swiper("#testimonial-slider", {
         autoplay: {
-          delay: 3000,
+          delay: 10000,
         },
         effect: "fade",
         fadeEffect: {
